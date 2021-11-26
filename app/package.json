@@ -7,10 +7,12 @@
     "bookitout": "www.js"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
   },
-  "devDependencies": {},
   "scripts": {
     "predev": "kill -9 $(lsof -i :3000 | grep -i -E -o '\\s[0-9]+\\s') || true",
     "start": "nodemon ./bin/www.js",
