@@ -14,4 +14,10 @@ router.get("/register", ctrl.output.register);
 router.post("/login", ctrl.process.login);
 router.post("/register", ctrl.process.register);
 
+// 게시판 API
+// router.post("/board", ctrl.board.post);
+// router.get("/board", ctrl.board.post);
+// router.delete("/board", ctrl.board.post);
+// router.update("/board", ctrl.board.post);
+
 module.exports = router;

@@ -27,13 +27,15 @@ class UserStorage {
     static async createUser(userInfo) {
         return new Promise((resolve, reject) => {
             const query =
-                "INSERT INTO users(id, pw, name) VALUES(?, ?, ?);";
+                "INSERT INTO user_info(user_id, user_pw, user_email, user_phone, user_address) VALUES(?, ?, ?, ?, ?);";
             //userInfo.pw = bcryptjs.hashSync(userInfo.pw);
             db.query(query,
                 [
-                    userInfo.id,
-                    userInfo.pw,
-                    userInfo.name
+                    userInfo.user_id,
+                    userInfo.user_pw,
+                    userInfo.user_email,
+                    userInfo.user_phone,
+                    userInfo.user_address
                 ], (err) => {
                     if (err) reject(`${err}`);
                     resolve({ success: true });

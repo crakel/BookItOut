@@ -14,15 +14,6 @@ class User {
         try {
             const { id, pw, name } = await UserStorage.getLoginInfo(client.id);
             
-            // const token = jwt.sign({
-            //     id: id,
-            //     name: name
-            // },
-            // process.env.SECRET, {
-            //     expiresIn: "60m"
-            // })
-
-            
             //const pw_sync = bcryptjs.compareSync(client.pw, pw);
             // await 으로 promise를 반환하는 데이터를 다 받을때까지 기다림
             // await은 async함수 안에서만 사용 가능
