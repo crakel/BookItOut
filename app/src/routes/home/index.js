@@ -15,7 +15,7 @@ router.post("/login", ctrl.process.login);
 router.post("/register", ctrl.process.register);
 
 // 게시판 API
-router.get("/list/:post_num/:trade", ctrl.trade.getTrade);
+router.get("/list/:trade", ctrl.trade.getTrade);
 router.get("/post/:trade/:post_num", ctrl.trade.readPost);
 router.post("/post/:trade", ctrl.trade.writePost);
 
