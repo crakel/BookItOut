@@ -12,7 +12,7 @@ class User {
         console.log(client);
         
         try {
-            const { id, pw, name } = await UserStorage.getLoginInfo(client.id);
+            const { id, pw, name } = await UserStorage.readLoginInfo(client.id);
             
             //const pw_sync = bcryptjs.compareSync(client.pw, pw);
             // await 으로 promise를 반환하는 데이터를 다 받을때까지 기다림
@@ -48,7 +48,7 @@ class User {
     async info() {
         const client = this.body;
         try {
-            const response = await UserStorage.getUserInfo(client.id);
+            const response = await UserStorage.readUserInfo(client.id);
             return response;
         } catch (err) {
             return { success: false, msg: err };

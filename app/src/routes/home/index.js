@@ -20,4 +20,8 @@ router.post("/register", ctrl.process.register);
 // router.delete("/board", ctrl.board.post);
 // router.update("/board", ctrl.board.post);
 
+// 쪽지함 API
+router.get("/sbox/:id", ctrl.letter.sendBox);
+router.get("/rbox/:id", ctrl.letter.receiveBox);
+router.post("/letter", ctrl.letter.sendLetter);
 module.exports = router;
