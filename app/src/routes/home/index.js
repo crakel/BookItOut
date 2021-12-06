@@ -23,4 +23,8 @@ router.post("/post/:trade", ctrl.trade.writePost);
 router.get("/sbox/:id", ctrl.letter.sendBox);
 router.get("/rbox/:id", ctrl.letter.receiveBox);
 router.post("/letter", ctrl.letter.sendLetter);
+
+// 책 API
+router.get("/book/:book_id", ctrl.book.getBook);
+
 module.exports = router;

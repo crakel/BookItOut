@@ -4,6 +4,7 @@
 const User = require("../../models/User");
 const Letter = require("../../models/Letter");
 const Trade = require("../../models/Trade");
+const Book = require("../../models/Book");
 
 const output = {
     home: (req, res) => {
@@ -90,10 +91,19 @@ const trade = {
     },
 };
 
+const book = {
+    getBook: async (req, res) => {
+        req.body.book_id = req.params.book_id;
+        const trade = new Book(req.body);
+        const response = await book.getBook();
+        return res.json(response);
+    },
+}
 // object key 하나만 입력 -> 키와 같은 value로 넣어줌 (ES6)
 module.exports = {
     output,
     process,
     letter,
     trade,
+    book,
 };
