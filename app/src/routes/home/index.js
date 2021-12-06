@@ -15,10 +15,9 @@ router.post("/login", ctrl.process.login);
 router.post("/register", ctrl.process.register);
 
 // 게시판 API
-// router.post("/board", ctrl.board.post);
-// router.get("/board", ctrl.board.post);
-// router.delete("/board", ctrl.board.post);
-// router.update("/board", ctrl.board.post);
+router.get("/list/:post_num/:trade", ctrl.trade.getTrade);
+router.get("/post/:trade/:post_num", ctrl.trade.readPost);
+router.post("/post/:trade", ctrl.trade.writePost);
 
 // 쪽지함 API
 router.get("/sbox/:id", ctrl.letter.sendBox);

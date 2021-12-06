@@ -59,11 +59,41 @@ const letter = {
         const response = await letter.sendLetter();
         return res.json(response);
     },
-}
+};
+
+const trade = {
+    getTrade: async (req, res) => {
+        req.body.post_num = req.params.post_num;
+        req.body.trade = req.params.trade;
+        console.log(req.body);
+        const trade = new Trade(req.body);
+        const response = await trade.getTrade();
+        return res.json(response);
+    },
+    
+    readPost: async (req, res) => {
+        req.body.trade = req.params.trade;
+        req.body.post_num = req.params.post_num;
+        const trade = new Trade(req.body);
+        const response = await trade.readPost();
+        return res.json(response);
+    },
+    
+     writePost: async (req, res) => {
+        req.body.trade = req.params.trade;
+         //if (req.file) {
+           // req.body.img = '/upload/board/' + req.file.filename;
+        //}
+        const trade = new Trade(req.body);
+        const response = await trade.writePost();
+        return res.json(response);
+    },
+};
 
 // object key 하나만 입력 -> 키와 같은 value로 넣어줌 (ES6)
 module.exports = {
     output,
     process,
     letter,
+    trade,
 };
