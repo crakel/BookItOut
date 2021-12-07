@@ -12,15 +12,14 @@ class User {
         console.log(client);
         
         try {
-            const { id, pw, name } = await UserStorage.readLoginInfo(client.id);
-            
+            const { user_id, user_pw } = await UserStorage.readLoginInfo(client.id);
             //const pw_sync = bcryptjs.compareSync(client.pw, pw);
             // await 으로 promise를 반환하는 데이터를 다 받을때까지 기다림
             // await은 async함수 안에서만 사용 가능
             // async await 함수는 자체적으로 promise를 반환한다
 
-            if (id) {
-                if (id === client.id && pw === client.pw) {
+            if (user_id) {
+                if (user_id === client.id && user_pw === client.pw) {
                     console.log("로그인성공");
                     return { success: true, msg: "로그인 성공"};
                 }

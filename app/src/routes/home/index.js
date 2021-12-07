@@ -26,5 +26,6 @@ router.post("/letter", ctrl.letter.sendLetter);
 
 // 책 API
 router.get("/book/:book_id", ctrl.book.getBook);
+router.get("/book", ctrl.book.getBookList);
 
 module.exports = router;

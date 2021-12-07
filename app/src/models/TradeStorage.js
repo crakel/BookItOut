@@ -6,7 +6,7 @@ class TradeStorage {
     static async getPostList(tradeInfo) {
         return new Promise((resolve, reject) => {
             const query =
-                "SELECT post_num, book_id, user_id, title, click FROM ?? ORDER BY post_num DESC;";
+                "SELECT post_num, book_id, user_id, title, content, click FROM ?? ORDER BY post_num DESC;";
             db.query(query, tradeInfo.trade, (err, data) => {
                 if (err) reject(`${err}`);
                 resolve(data);

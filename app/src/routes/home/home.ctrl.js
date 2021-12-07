@@ -64,7 +64,6 @@ const letter = {
 
 const trade = {
     getTrade: async (req, res) => {
-        req.body.post_num = req.params.post_num;
         req.body.trade = req.params.trade;
         console.log(req.body);
         const trade = new Trade(req.body);
@@ -94,11 +93,18 @@ const trade = {
 const book = {
     getBook: async (req, res) => {
         req.body.book_id = req.params.book_id;
-        const trade = new Book(req.body);
+        const book = new Book(req.body);
         const response = await book.getBook();
         return res.json(response);
     },
-}
+
+    getBookList: async (req, res) => {
+        const book = new Book(req.body);
+        const response = await book.getBookList();
+        return res.json(response);
+    },
+};
+
 // object key 하나만 입력 -> 키와 같은 value로 넣어줌 (ES6)
 module.exports = {
     output,

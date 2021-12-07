@@ -12,7 +12,17 @@ class Book {
         const client = this.body;
         try {
             console.log(client);
-            const response = await BookStorage.readBook(client.book_id);
+            const response = await BookStorage.readBook(parseInt(client.book_id));
+            return response;
+        } catch (err) {
+            return { success: false, msg: err };
+        }
+    }
+    
+    async getBookList() {
+        const client = this.body;
+        try {
+            const response = await BookStorage.readBookList();
             return response;
         } catch (err) {
             return { success: false, msg: err };
